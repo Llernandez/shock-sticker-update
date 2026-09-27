@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shocksticker-rescue"
+version = "0.1.0"
+description = "Shock Sticker 데이터 구조 도구 — 포맷 관측, 잔존 데이터 수색, 세대 백업"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["shock-sticker", "reverse-engineering", "delphi", "backup", "legacy"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Utilities",
+]
+dependencies = []          # 표준 라이브러리만 쓴다. 단일 exe 배포를 위해서다.
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+sskctl = "ssk.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Llernandez/shock-sticker-update"
+
+[tool.setuptools.packages.find]
+include = ["ssk*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
